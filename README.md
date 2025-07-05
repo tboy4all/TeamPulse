@@ -56,11 +56,13 @@ yarn install
 
 Create a .env or edit the .env.example file in the root which look like the following:
 
+```bash
 DATABASE_URL=""
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=""
 GOOGLE_CLIENT_ID=""
 GOOGLE_CLIENT_SECRET=""
+```
 
 You can get your Google credentials from https://console.cloud.google.com.
 
