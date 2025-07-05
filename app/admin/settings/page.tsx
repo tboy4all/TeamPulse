@@ -1,14 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { z } from 'zod'
-import Spinner from '@/app/components/Spinner'
-import ErrorMessage from '@/app/components/ErrorMessage'
-
-const SettingsSchema = z.object({
-  checkInsEnabled: z.boolean(),
-  checkInFrequency: z.enum(['DAILY', 'WEEKLY', 'MONTHLY']),
-})
+import Spinner from '@/components/Spinner'
+import ErrorMessage from '@/components/ErrorMessage'
+import { updateAppSettingsSchema } from '@/app/validationSchemas'
 
 export default function AdminSettingsPage() {
   const [loading, setLoading] = useState(true)
@@ -46,7 +41,7 @@ export default function AdminSettingsPage() {
       checkInFrequency,
     }
 
-    const validation = SettingsSchema.safeParse(formData)
+    const validation = updateAppSettingsSchema.safeParse(formData)
 
     if (!validation.success) {
       setError('❌ Invalid settings. Please check your inputs.')
@@ -107,7 +102,7 @@ export default function AdminSettingsPage() {
 
       <button
         onClick={handleSave}
-        className={`bg-violet-600 text-white px-6 py-2 rounded flex items-center gap-2 hover:bg-violet-700 disabled:opacity-60 cursor-pointer`}
+        className='bg-violet-600 text-white px-6 py-2 rounded flex items-center gap-2 hover:bg-violet-700 disabled:opacity-60 cursor-pointer'
         disabled={saving}
       >
         {saving && <Spinner />}

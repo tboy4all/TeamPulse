@@ -1,7 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Spinner, SentimentBadge, ErrorMessage, Link } from '@/app/components'
+// import { Spinner, SentimentBadge, ErrorMessage, Link } from '@/components'
+import ErrorMessage from '@/components/ErrorMessage'
+import Spinner from '@/components/Spinner'
+import SentimentBadge from '@/components/SentimentBadge'
+import Link from '@/components/Link'
 
 interface Team {
   id: string

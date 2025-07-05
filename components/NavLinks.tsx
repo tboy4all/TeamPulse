@@ -3,9 +3,13 @@
 import Link from 'next/link'
 import classnames from 'classnames'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 const NavLinks = () => {
   const currentPath = usePathname()
+  const { status } = useSession()
+
+  if (status === 'loading' || status === 'unauthenticated') return null
 
   const links = [
     { label: 'Dashboard', href: '/dashboard' },
@@ -19,8 +23,7 @@ const NavLinks = () => {
         <li key={link.href}>
           <Link
             href={link.href}
-            className={classnames({
-              'nav-link': true,
+            className={classnames('nav-link', {
               '!text-zinc-900': link.href === currentPath,
             })}
           >

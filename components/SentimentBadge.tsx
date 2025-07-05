@@ -1,5 +1,3 @@
-// app/components/SentimentBadge.tsx
-
 interface Props {
   score: number
 }

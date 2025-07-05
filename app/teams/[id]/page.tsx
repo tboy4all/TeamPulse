@@ -1,7 +1,8 @@
 'use client'
 
-import { ErrorMessage, Spinner } from '@/app/components'
-import Pagination from '@/app/components/Pagination'
+import ErrorMessage from '@/components/ErrorMessage'
+import Spinner from '@/components/Spinner'
+import Pagination from '@/components/Pagination'
 import { ArrowLeftIcon } from '@radix-ui/react-icons'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'

@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 TeamPulse – Sentiment Tracking App
 
-## Getting Started
+TeamPulse is a team sentiment monitoring app built with **Next.js 15+ App Router**, **Tailwind CSS**, **NextAuth.js**, and **shadcn/ui** components.
 
-First, run the development server:
+It allows teams to track how they feel, visualize sentiment trends, and make informed management decisions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Features
+
+- 🔐 Authentication via **Email + Password** and **Google OAuth**
+- 📊 Dashboard for viewing team sentiment
+- 📈 Sentiment Trends graph
+- 👥 Admin-only settings page
+- ⚡️ Tailwind CSS + shadcn/ui styled components
+- 📦 Prisma ORM with a PostgreSQL database
+
+---
+
+## 📁 Folder Structure
+
+````bash
+app/
+├── api/ # API routes
+├── auth/ # Goggle Authentication
+├── components/ # Shared React components (UI, badges, skeleton, etc.)
+├── dashboard/ # Authenticated dashboard route
+├── login/ # Login form (credentials + Google)
+├── sentiment-trends/ # Trends page
+├── admin/ # Admin-only pages
+├── teams/[id] # TeamsDetailPage
+lib/ # Utilities (e.g., cn, auth config)
+prisma/ # Prisma schema
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the Repo
 
-## Learn More
+```bash
+git clone https://github.com/tboy4all/TeamPulse.git
+cd teampulse
+````
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Install Dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# or
 
-## Deploy on Vercel
+yarn install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Set Up Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a .env or edit the .env.example file in the root which look like the following:
+
+DATABASE_URL=""
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=""
+GOOGLE_CLIENT_ID=""
+GOOGLE_CLIENT_SECRET=""
+
+You can get your Google credentials from https://console.cloud.google.com.
+
+### 4. Setup Prisma (Database)
+
+npx prisma generate
+npx prisma migrate dev --name init
+
+Seed the database if needed.
+
+### 5. Run the Dev Server
+
+npm run dev
+
+# or
+
+yarn dev
+Visit: http://localhost:3000
+
+## 🧪 Testing Authentication
+
+- Sign in using email/password or click "Sign in with Google"
+
+- If Google login gives OAuthCallback error, double-check your GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and Authorized URLs in Google Console.
+
+- Use /dashboard and /admin/settings to test authenticated/role-based pages.
+
+## 🧩 Technologies Used
+
+- Next.js 15+
+
+- Tailwind CSS V4
+
+- NextAuth.js
+
+- shadcn/ui
+
+- Prisma
+
+- Radix UI
+
+- React Icons

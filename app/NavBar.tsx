@@ -1,12 +1,15 @@
 'use client'
 
-import { Skeleton } from '@/app/components'
+// import { Skeleton } from '../components'
+
+import Skeleton from '../components/Skeleton'
+
 import Link from 'next/link'
 import React from 'react'
 import { AiFillBug } from 'react-icons/ai'
 import { signOut, useSession } from 'next-auth/react'
 import { Avatar, Container, Flex } from '@radix-ui/themes'
-import NavLinks from './components/NavLinks'
+import NavLinks from '../components/NavLinks'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 const NavBar = () => {
